@@ -1,12 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import { Navbar } from './components/Navbar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-      <h3 classname = 'text-xl'>hello, tailwind css in react!!</h3>
-      <h3> how are you</h3>
+      <Navbar/>
+      <Routes>
+          <Route index element={<Home/>}/>
+          <Route path='about' element={<About/>}/>
+          <Route path='farmer' element={<About/>}/>
+          <Route path='about' element={<About/>}/>
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 
