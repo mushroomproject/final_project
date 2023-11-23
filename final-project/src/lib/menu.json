@@ -1,21 +1,9 @@
+
 [
-    {
-      "title":"I am farmer",
-      "href":"/Farmer"
-    },
-    {
-      "title":"I am expert",
-      "href":"/Expert"
-    },
-    {
-      "title":"News",
-      "href":"/News"
-    },
-    {
-      "title":"Our Product",
-      "href":"/Product"
-    },{
-      "title":"About",
-      "href":"/About"
-    }
-  ]
+  { "title": "Home", "path": "/" },
+  { "title": "About", "path": "/about" },
+  { "title": "Farmer", "path": "/farmer" },
+  { "title": "News", "path": "/news" },
+  { "title": "Product", "path": "/product" },
+  { "title": "Expert", "path": "/expert" }
+]
