@@ -12,7 +12,7 @@ function App() {
       <Navbar/>
       <Routes>
           <Route index element={<Home/>}/>
-          <Route path='about' element={<About/>}/>
+          <Route path='About' element={<About/>}/>
           <Route path='farmer' element={<About/>}/>
           <Route path='about' element={<About/>}/>
       </Routes>

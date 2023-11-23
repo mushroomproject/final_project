@@ -1,21 +1,21 @@
 [
     {
       "title":"I am farmer",
-      "href":"/farmer"
+      "href":"/Farmer"
     },
     {
       "title":"I am expert",
-      "href":"/farmer"
+      "href":"/Expert"
     },
     {
       "title":"News",
-      "href":"/farmer"
+      "href":"/News"
     },
     {
       "title":"Our Product",
-      "href":"/farmer"
+      "href":"/Product"
     },{
       "title":"About",
-      "href":"/about"
+      "href":"/About"
     }
   ]
