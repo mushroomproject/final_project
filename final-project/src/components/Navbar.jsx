@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimesCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { SearchBox } from './SearchBox';
+//import { SearchBox } from './SearchBox';
 import logo from '../logo.svg';
 import menu from '../lib/menu.json'; // Adjust the path accordingly
 

@@ -5,6 +5,7 @@ import vegetable2 from '../assets/vegetable2.jpg';
 import vegetable3 from '../assets/vegetable3.jpg';
 import vegetable4 from '../assets/vegetable4.jpg';
 import vegetable5 from '../assets/vegetable5.jpg';
+import { Link } from 'react-router-dom';
 
 
 const YourComponent = () => {
@@ -24,14 +25,14 @@ const YourComponent = () => {
 
   return (
     <section className="relative h-full md:h-screen min-h-screen text-bold">
-      <div className="grid h-full place-content-center place-items-center text-white grid-col-1 md:grid-cols-2">
+      <div className=" grid h-full flex-row place-content-center place-items-center text-white grid-col-2 md:grid-cols-2">
         <div className='h-screen md:h-full flex  flex-col items-center justify-center'>
-        <h2 className="text-2xl   font-bold mb-4">Download Our Free Guide</h2>
+        <h2 className="text-xl mx-4  mb-4 bg-opacity-20 backdrop-blur">Join our farmer community and experience the collective power of support, knowledge, and resources. Together, we cultivate success and empower farmers on our dedicated platform.</h2>
               <button className="bg-blue-500 text-white py-2 px-4 rounded">
-                Download Book
+                <Link to="/register">Register here</Link>
               </button> 
         </div>
-        <div className='h-screen md:h-full flex  flex-col '>
+        <div className='h-screen md:h-full flex  flex-col items-center justify-center '>
         <h3 className="text-2xl font-semibold  mb-4">Our Youtube Channel</h3>
               <div className="max-w-md">
                 <iframe
@@ -42,6 +43,14 @@ const YourComponent = () => {
                   allowFullScreen
                 ></iframe>
               </div>
+        </div>
+        <div className='h-screen md:h-full flex  flex-col items-center justify-center'>
+        <h2 className="text-xl mx-4  mb-4 bg-opacity-20 backdrop-blur ">Engage with specialized experts and consult with 
+        our knowledgeable professionals for assistance and timely update on crop diseases or seek
+         expert guidance for innovative farming practices. Your journey to successful and informed farming starts with our dedicated experts.</h2>
+              <button className="bg-green-500  text-white py-2 px-4 rounded hover:bg-green-700">
+                <Link to="/register"> Book an appointment today</Link>
+              </button> 
         </div>
       </div>
       {/* <div className="relative z-10">
