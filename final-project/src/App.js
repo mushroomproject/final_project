@@ -7,6 +7,7 @@ import Farmer from './pages/Farmer';
 import News from './pages/News';
 import Expert from './pages/Expert';
 import Product from './pages/Product';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/product" element={<Product />} />
           <Route path='/expert' element={<Expert />} />
+          <Route path='/register' element={<Register />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
+import SignInForm from './SignInForm'; // Make sure to adjust the path accordingly
 
 const Farmer = () => {
   return (
-    <div className='bg-green-700 h-screen'>
-        here is the section where farmer page is to be edited
+    <div>
+      <h2>Farmer Page</h2>
+      {/* Your other Farmer page content goes here */}
+      <SignInForm />
     </div>
-  )
-}
+  );
+};
+
 export default Farmer;
