@@ -1,224 +1,94 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Navbar } from '../components/Navbar'
+import React, { useState, useEffect } from 'react';
+import vegetable from '../assets/vegetable.jpg';
+import vegetable1 from '../assets/vegetable1.jpg';
+import vegetable2 from '../assets/vegetable2.jpg';
+import vegetable3 from '../assets/vegetable3.jpg';
+import vegetable4 from '../assets/vegetable4.jpg';
+import vegetable5 from '../assets/vegetable5.jpg';
 
-export default function Home() {
+
+const YourComponent = () => {
+  const [currentImage, setCurrentImage] = useState(vegetable1);
+  const imageList = [vegetable,vegetable1, vegetable2,vegetable3,vegetable4,vegetable5]; // Add more images as needed
+  const intervalTime = 5000; // Change image every 5 seconds (adjust as needed)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const nextImageIndex = (imageList.indexOf(currentImage) + 1) % imageList.length;
+      setCurrentImage(imageList[nextImageIndex]);
+    }, intervalTime);
+
+    // Clear the interval when the component unmounts
+    return () => clearInterval(interval);
+  }, [currentImage, imageList]);
+
   return (
-    <section class="mt-20 bg-red h-screen text-green-500">
-  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
-    <div class=" max-w-lg text-center">
-    <h2 className="text-2xl font-bold mb-4">Download Our Free Guide</h2>
-        <button className="bg-blue-500 text-white py-2 px-4 rounded">
-          Download Book
-        </button>
-    </div>
-
-    <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <a class="block rounded-xl border border-green-500 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10" href="./Farmer">
-        <h2 class="mt-4 text-xl font-bold text-white"></h2>
-        <div>
-        <p className="text-lg">Start Your Own Farm</p>
-       <button className="bg-green-400 shadow-slate text-white py-2 px-4 rounded mt-5 shadow-xl transition hover:border-black hover:shadow-green-600">
-       Take an Appointment
-       </button>
+    <section className="relative h-full md:h-screen min-h-screen text-bold">
+      <div className="grid h-full place-content-center place-items-center text-white grid-col-1 md:grid-cols-2">
+        <div className='h-screen md:h-full flex  flex-col items-center justify-center'>
+        <h2 className="text-2xl   font-bold mb-4">Download Our Free Guide</h2>
+              <button className="bg-blue-500 text-white py-2 px-4 rounded">
+                Download Book
+              </button> 
         </div>
-      </a>
+        <div className='h-screen md:h-full flex  flex-col '>
+        <h3 className="text-2xl font-semibold  mb-4">Our Youtube Channel</h3>
+              <div className="max-w-md">
+                <iframe
+                  title="YouTube Video"
+                  width="100%"
+                  height="315"
+                  src="https://www.youtube.com/embed/your-video-id"
+                  allowFullScreen
+                ></iframe>
+              </div>
+        </div>
+      </div>
+      {/* <div className="relative z-10">
+        
+        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
+          <div className="flex justify-between flex-row">
+            <div className="flex flex-col">
+              <h2 className="text-2xl   font-bold mb-4">Download Our Free Guide</h2>
+              <button className="bg-blue-500 text-white py-2 px-4 rounded">
+                Download Book
+              </button>
+            </div>
+            <div className="flex flex-col">
+              <h3 className="text-2xl font-semibold  mb-4">Our Youtube Channel</h3>
+              <div className="max-w-md">
+                <iframe
+                  title="YouTube Video"
+                  width="100%"
+                  height="315"
+                  src="https://www.youtube.com/embed/your-video-id"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
 
-      <a
-        class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-400 hover:shadow-pink-500/10"
-        href="./Farmer"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-10 w-10 text-pink-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path
-            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-          />
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-          />
-        </svg>
+          <div className="mt-12 text-center">
+            <a
+              href="#"
+              className="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
+            >
+              Get Started Today
+            </a>
+          </div>
+        </div>
+      </div> 
+      */}
 
-        <h2 class="mt-4 text-xl font-bold text-white">Digital campaigns</h2>
+     
+      <img
+        src={currentImage}
+        className='app-logo absolute brightness-50 -z-10 inset-0 w-full h-full object-cover'
+        alt='loading'
+      />
+    </section>
+  );
+};
 
-        <p class="mt-1 text-sm text-gray-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
-          possimus adipisci distinctio alias voluptatum blanditiis laudantium.
-        </p>
-      </a>
+export default YourComponent;
 
-      <a
-        class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
-        href="/services/digital-campaigns"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-10 w-10 text-pink-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path
-            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-          />
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-          />
-        </svg>
-
-        <h2 class="mt-4 text-xl font-bold text-white">Digital campaigns</h2>
-
-        <p class="mt-1 text-sm text-gray-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
-          possimus adipisci distinctio alias voluptatum blanditiis laudantium.
-        </p>
-      </a>
-
-      <a
-        class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
-        href="/services/digital-campaigns"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-10 w-10 text-pink-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path
-            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-          />
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-          />
-        </svg>
-
-        <h2 class="mt-4 text-xl font-bold text-white">Digital campaigns</h2>
-
-        <p class="mt-1 text-sm text-gray-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
-          possimus adipisci distinctio alias voluptatum blanditiis laudantium.
-        </p>
-      </a>
-
-      <a
-        class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
-        href="/services/digital-campaigns"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-10 w-10 text-pink-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path
-            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-          />
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-          />
-        </svg>
-
-        <h2 class="mt-4 text-xl font-bold text-white">Digital campaigns</h2>
-
-        <p class="mt-1 text-sm text-gray-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
-          possimus adipisci distinctio alias voluptatum blanditiis laudantium.
-        </p>
-      </a>
-
-      <a
-        class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
-        href="/services/digital-campaigns"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-10 w-10 text-pink-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path
-            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-          />
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-          />
-        </svg>
-
-        <h2 class="mt-4 text-xl font-bold text-white">Digital campaigns</h2>
-
-        <p class="mt-1 text-sm text-gray-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
-          possimus adipisci distinctio alias voluptatum blanditiis laudantium.
-        </p>
-      </a>
-    </div>
-
-    <div class="mt-12 text-center">
-      <a
-        href="#"
-        class="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
-      >
-        Get Started Today
-      </a>
-    </div>
-  </div>
-</section>
-//     <div className="container mx-auto mt-8 p-4">
-//     <div className="flex justify-between items-center my-20">
-//       <div>
-//         <h2 className="text-2xl font-bold mb-4">Download Our Free Guide</h2>
-//         <button className="bg-blue-500 text-white py-2 px-4 rounded">
-//           Download Book
-//         </button>
-//       </div>
-//       <div className="text-right">
-//         <p className="text-lg">Start Your Own Farm</p>
-//         <button className="bg-green-500 text-white py-2 px-4 rounded mt-4">
-//           Take an Appointment
-//         </button>
-//       </div>
-//     </div>
-
-//     {/* YouTube Video Section */}
-//     <div className="mt-8">
-//       {/* You can embed your YouTube video here */}
-//       {/* Example: */}
-//       <iframe
-//         title="YouTube Video"
-//         width="560"
-//         height="315"
-//         src="https://www.youtube.com/embed/your-video-id"
-//         frameBorder="0"
-//         allowFullScreen
-//       ></iframe>
-//     </div>
-//   </div>
-  )
-}
