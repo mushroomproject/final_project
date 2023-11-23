@@ -15,6 +15,10 @@ const NavLinks = () => (
         <Link to={item.path}>{item.title}</Link>
       </li>
     ))}
+    {/* Add a link to the registration page */}
+    <li>
+      <Link to="/register">Register</Link>
+    </li>
   </ul>
 );
 
@@ -35,6 +39,10 @@ const MobileMenu = ({ isOpen }) => (
           <Link to={item.path}>{item.title}</Link>
         </li>
       ))}
+      {/* Add a link to the registration page in the mobile menu */}
+      <li className='bg-white hover:bg-gray-200 cursor-pointer'>
+        <Link to="/register">Register</Link>
+      </li>
     </ul>
   </div>
 );
@@ -76,4 +84,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
