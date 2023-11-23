@@ -29,7 +29,7 @@ const MobileMenu = () => {
     <div className='text-black flex gap-2 items-start'>
     <button
             onClick={() => setOpenMenu(!openMenu)}
-            className='block md:hidden my-3 mx-2 text-white p-4 cursor-pointer'
+            className=' my-3 mx-2 text-white p-4 cursor-pointer'
             >
             {/* Button for toggling the mobile menu */}
             <FaBars />
@@ -78,15 +78,12 @@ const Navbar = () => {
           <NavLinks />
         </div>
 
-        <div className='flex gap-6 duration-200 items-start ease-in'>
-          <div className='hidden md:block my-3 fill-white text-white'>
-            {/* Component for the search box */}
-            <SearchBox />
-          </div>
+         <div className='flex gap-6 duration-200 items-start ease-in'>
+
           
           {/* Render the mobile menu */}
           <MobileMenu />
-        </div>
+        </div> 
       </div>
     </div>
   );
